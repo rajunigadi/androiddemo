@@ -3,3 +3,4 @@ Libraries/Frameworks used:
 
 Examples:
 1) Activity lifecycle
+2) Communicate between fragments
