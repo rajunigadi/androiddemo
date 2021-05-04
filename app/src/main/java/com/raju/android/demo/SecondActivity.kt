@@ -1,26 +1,16 @@
 package com.raju.android.demo
 
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import com.raju.android.demo.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
 
-    private val TAG = "MainActivityLog"
-
-    private var binding: ActivityMainBinding? = null
+    private val TAG = "SecondActivityLog"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
-        Log.d(TAG, "onCreate")
-
-        binding?.button?.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
-        }
+        setContentView(R.layout.activity_second)
     }
 
     override fun onRestart() {
