@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidDemo">
 
-        <activity android:name=".MyFragmentActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,8 +18,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".fragment.headless.HeadlessActivity"/>
         <activity android:name=".SecondActivity" />
+        <activity android:name=".MyFragmentActivity" />
 
     </application>
 

@@ -2,6 +2,7 @@ package com.raju.android.demo
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.raju.android.demo.databinding.ActivityMainBinding
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
         Log.d(TAG, "onCreate")
-
+        Log.d(TAG, "savedInstanceState: ${savedInstanceState?.getString("out_state")}")
         binding?.button?.setOnClickListener {
             startActivity(Intent(this, SecondActivity::class.java))
         }
@@ -51,5 +52,17 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        outState?.putString("out_state", "Hello");
+        Log.d(TAG, "onSaveInstanceState")
+        super.onSaveInstanceState(outState, outPersistentState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        Log.d(TAG, "onRestoreInstanceState")
+        Log.d(TAG, "onRestoreInstanceState: ${savedInstanceState?.getString("out_state")}")
+        super.onRestoreInstanceState(savedInstanceState)
     }
 }
